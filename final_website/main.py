@@ -152,8 +152,6 @@ def p_search_results(search):
     search_string = search.data['search']
     data_obj = db_session.query(Kinase_Phosphosite).filter(Kinase_Phosphosite.substrate_protein.ilike(search_string)).first()
 
-    data_obj = db_session.query(Kinase_Phosphosite).filter(Kinase_Phosphosite.substrate_protein.ilike(search_string)).first()
-
     if  data_obj:
         results['substrate'] = data_obj.substrate_protein
         results['gene'] = data_obj.gene
